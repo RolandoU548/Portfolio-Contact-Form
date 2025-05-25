@@ -1,8 +1,8 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const contactRoutes = require('./routes/contactRoutes');
-const { errorHandler } = require('./middleware/errorHandler');
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
+const contactRoutes = require("./src/routes/contactRoutes");
+const { errorHandler } = require("./src/middleware/errorHandler");
 
 // Initialize express app
 const app = express();
@@ -14,11 +14,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use('/api', contactRoutes);
+app.use("/api", contactRoutes);
 
 // Basic route for testing
-app.get('/', (req, res) => {
-  res.json({ message: 'Contact Form API is running' });
+app.get("/", (req, res) => {
+  res.json({ message: "Contact Form API is running" });
 });
 
 // Error handling middleware
