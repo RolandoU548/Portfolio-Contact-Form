@@ -41,7 +41,7 @@ exports.sendConfirmationEmail = async ({ name, email, subject, lang }) => {
       ? "Thanks for your interest - Rolando Uzcátegui" 
       : "Gracias por tu interés - Rolando Uzcátegui";
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: `"Rolando Uzcátegui" <${process.env.EMAIL_USER}>`,
       to: email,
       subject: mailSubject,
       html: lang === "en" 
