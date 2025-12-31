@@ -37,11 +37,17 @@ exports.sendEmailToOwner = async ({ name, email, subject, message }) => {
 
 exports.sendConfirmationEmail = async ({ name, email, subject, lang }) => {
   try {
+    const mailSubject = lang === "en" 
+      ? "Thanks for your interest - Rolando Uzcátegui" 
+      : "Gracias por tu interés - Rolando Uzcátegui";
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: `"Rolando Uzcátegui" <${process.env.EMAIL_USER}>`,
       to: email,
-      subject: lang == "es" ? `Gracias por tu interés - Rolando Uzcátegui: ${subject}` : `Thanks for your interest - Rolando Uzcátegui: ${subject}`,
-      html: lang == "es" ? emailTemplates.clientEmailTemplateEs({ name }) : emailTemplates.clientEmailTemplateEn({ name }),
+      subject: mailSubject,
+      // Usamos comparación estricta y template string
+      html: lang === "en" 
+        ? emailTemplates.clientEmailTemplateEn({ name }) 
+        : emailTemplates.clientEmailTemplateEs({ name }),
     };
 
     await transporter.sendMail(mailOptions);
