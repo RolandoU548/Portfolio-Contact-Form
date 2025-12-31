@@ -40,7 +40,7 @@ exports.sendConfirmationEmail = async ({ name, email, subject, lang }) => {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
-      subject: `Thank you for contacting us: ${subject}`,
+      subject: lang == "es" ? `Gracias por tu interés - Rolando Uzcátegui: ${subject}` : `Thanks for your interest - Rolando Uzcátegui: ${subject}`,
       html: lang == "es" ? emailTemplates.clientEmailTemplateEs({ name }) : emailTemplates.clientEmailTemplateEn({ name }),
     };
 
