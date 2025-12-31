@@ -3,7 +3,7 @@ const emailService = require("../services/emailService");
 exports.submitContactForm = async (req, res, next) => {
   try {
     const { name, email, subject, message, lang } = req.body;
-    const userLang = lang || 'es';
+    const userLang = lang || 'en';
     
     await Promise.all([
       emailService.sendEmailToOwner({ name, email, subject, message }),
