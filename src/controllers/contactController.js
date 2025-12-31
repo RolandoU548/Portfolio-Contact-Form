@@ -9,6 +9,12 @@ exports.submitContactForm = async (req, res, next) => {
       emailService.sendEmailToOwner({ name, email, subject, message }),
       emailService.sendConfirmationEmail({ name, email, subject, lang: userLang })
     ]);
+
+    res.status(200).json({
+      success: true,
+      message: "Contact form submitted successfully",
+    });
+    
   } catch (error) {
     next(error);
   }
