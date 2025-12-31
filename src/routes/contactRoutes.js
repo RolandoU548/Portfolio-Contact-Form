@@ -31,7 +31,6 @@ const contactValidation = [
     .isIn(["es", "en"])
     .withMessage("Language must be either 'es' or 'en'"),
 ];
-];
 
 // Contact form endpoint
 router.post(
