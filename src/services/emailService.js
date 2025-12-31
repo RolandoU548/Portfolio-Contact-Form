@@ -35,13 +35,13 @@ exports.sendEmailToOwner = async ({ name, email, subject, message }) => {
   }
 };
 
-exports.sendConfirmationEmail = async ({ name, email, subject }) => {
+exports.sendConfirmationEmail = async ({ name, email, subject, lang }) => {
   try {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
       subject: `Thank you for contacting us: ${subject}`,
-      html: emailTemplates.clientEmailTemplate({ name }),
+      html: lang == "es" ? emailTemplates.clientEmailTemplateEs({ name }) : emailTemplates.clientEmailTemplateEn({ name }),
     };
 
     await transporter.sendMail(mailOptions);
