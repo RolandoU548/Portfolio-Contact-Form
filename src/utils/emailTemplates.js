@@ -82,7 +82,130 @@ exports.ownerEmailTemplate = ({ name, email, subject, message }) => {
   `;
 };
 
-exports.clientEmailTemplate = ({ name }) => {
+exports.clientEmailTemplateEn = ({ name }) => {
+  return `
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thanks for contacting me</title>
+    <style>
+      /* Estilos base para evitar problemas en Gmail */
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+      table {
+        border-spacing: 0;
+      }
+      img {
+        border: 0;
+      }
+      .container {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+      }
+      .header {
+        background-color: #16162d;
+        padding: 40px;
+        text-align: center;
+      }
+      .content {
+        padding: 40px;
+        color: #333333;
+        line-height: 1.6;
+      }
+      .footer {
+        background-color: #f9f9f9;
+        padding: 20px;
+        text-align: center;
+        font-size: 12px;
+        color: #888888;
+      }
+      .button {
+        background-color: #0070f3;
+        color: white;
+        padding: 15px 25px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        display: inline-block;
+        margin-top: 20px;
+      }
+      h1 {
+        color: #ffffff;
+        margin: 0;
+        font-size: 24px;
+      }
+      p {
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <table role="presentation" class="container">
+      <tr>
+        <td class="header">
+          <h1>Rolando Uzcátegui</h1>
+        </td>
+      </tr>
+      <tr>
+        <td class="content">
+          <h2 style="color: #1a1a1a">Thanks for your message!</h2>
+          <p>Hello, ${name}</p>
+          <p>
+            I have received your request through my contact form. I greatly
+            value your interest and the time you have taken to write to me.
+          </p>
+          <p>
+            This is an automated message to confirm that
+            <strong>your message has arrived correctly</strong>. I will review
+            the information and get in touch with you as soon as possible
+            (usually in less than 24 hours).
+          </p>
+          <p>
+            In the meantime, if you want to see more of my work, you can visit
+            my website again:
+          </p>
+          <a href="https://www.rolandouzcategui.com" class="button"
+            >Back to website</a
+          >
+        </td>
+      </tr>
+      <tr>
+        <td class="footer">
+          <p>
+            Rolando Uzcátegui | Web Developer<br />
+            You have received this email because you wrote at rolandouzcategui.com
+          </p>
+          <div style="margin-top: 10px">
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/rolando-uzc%C3%A1tegui"
+              style="color: #0070f3; text-decoration: none; margin: 0 10px"
+              >LinkedIn</a
+            >
+            <a
+              target="_blank"
+              href="https://github.com/RolandoU548"
+              style="color: #0070f3; text-decoration: none; margin: 0 10px"
+              >GitHub</a
+            >
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
+  `;
+};
+
+exports.clientEmailTemplateEs = ({ name }) => {
   return `
 <!DOCTYPE html>
 <html lang="es">
