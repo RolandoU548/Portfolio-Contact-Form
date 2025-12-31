@@ -2,7 +2,7 @@ const emailService = require("../services/emailService");
 
 exports.submitContactForm = async (req, res, next) => {
   try {
-    const { name, email, subject, message } = req.body;
+    const { name, email, subject, message, lang } = req.body;
 
     await emailService.sendEmailToOwner({
       name,
@@ -11,10 +11,13 @@ exports.submitContactForm = async (req, res, next) => {
       message,
     });
 
+    const userLang = lang || 'es';
+    
     await emailService.sendConfirmationEmail({
       name,
       email,
       subject,
+      lang: userLang
     });
 
     res.status(200).json({
