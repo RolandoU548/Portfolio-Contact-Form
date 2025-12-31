@@ -24,6 +24,13 @@ const contactValidation = [
     .withMessage("Valid email is required"),
   body("subject").trim().not().isEmpty().withMessage("Subject is required"),
   body("message").trim().not().isEmpty().withMessage("Message is required"),
+  body("lang")
+    .optional()
+    .trim()
+    .toLowerCase()
+    .isIn(["es", "en"])
+    .withMessage("Language must be either 'es' or 'en'"),
+];
 ];
 
 // Contact form endpoint
